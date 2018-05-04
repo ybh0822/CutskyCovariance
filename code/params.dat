@@ -1,0 +1,109 @@
+#-------------------------------------------------------------------------------
+# driver_params
+#-------------------------------------------------------------------------------
+driver.burnin = 0
+driver.epsilon = 0.02
+driver.init_from = 'result'
+driver.init_scatter = 0.0
+driver.lbfgs_epsilon = {'f1h_cBs': 0.01, 'Nsat_mult': 0.01}
+driver.lbfgs_options = {'xtol': 1e-10, 'gtol': 1e-05, 'ftol': 1e-10}
+driver.lbfgs_use_priors = True
+driver.solver_type = 'nlopt'
+driver.start_from = '/Users/Byeonghee/Desktop/PowerSpectrum/BOSS_DR12_combined/Cov_run_PATHCY/Nbin1_1000/2018-05-03_nlopt_381i_chain0__1.npz'
+driver.test_convergence = False
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+# data params
+#-------------------------------------------------------------------------------
+data.covariance = '/Users/Byeonghee/Desktop/PowerSpectrum/BOSS_DR12_combined/Cov_run_PATHCY/Nbin1_1000/Cov_Run3_N_zbin1_mock1000_rmfb0_nocp1.dat'
+data.covariance_Nmocks = 0
+data.covariance_rescaling = 1.0
+data.data_file = '/Users/Byeonghee/Desktop/PowerSpectrum/BOSS_DR12_combined/Cov_run_PATHCY/Nbin1_1000/pole_N_zbin1_mock1000_rmfb0_nocp1.dat'
+data.ells = [0, 2, 4]
+data.fitting_range = (0.02, 0.4)
+data.grid_file = None
+data.mode = 'poles'
+data.mu_bounds = None
+data.statistics = ['pole_0', 'pole_2', 'pole_4']
+data.usedata = [0, 1, 2]
+data.window_file = '/Users/Byeonghee/Desktop/PowerSpectrum/BOSS_DR12_combined/Cov_run_PATHCY/Nbin1_1000/Window_N_1.dat'
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+# theory params
+#-------------------------------------------------------------------------------
+theory.F_AP = {'name': 'F_AP', 'value': 1.0, 'vary': False, 'expr': 'alpha_par/alpha_perp', 'analytic': False}
+theory.N = {'name': 'N', 'value': 0.0, 'vary': False, 'fiducial': 0.0, 'prior_name': 'uniform', 'lower': -500.0, 'upper': 500.0, 'analytic': False}
+theory.NcBs = {'name': 'NcBs', 'value': 40220.78486603625, 'vary': False, 'expr': 'f1h_cBs / (fcB*(1 - fs)*nbar)', 'fiducial': 45000.0, 'analytic': False}
+theory.NsBsB = {'name': 'NsBsB', 'value': 128483.06276650475, 'vary': False, 'expr': 'f1h_sBsB / (fsB**2 * fs**2 * nbar) * (fcB*(1 - fs) - fs*(1-fsB))', 'fiducial': 94500.0, 'analytic': False}
+theory.Nsat_mult = {'name': 'Nsat_mult', 'value': 2.4, 'vary': True, 'min': 2.0, 'fiducial': 2.4, 'prior_name': 'normal', 'mu': 2.4, 'sigma': 0.2, 'analytic': False}
+theory.alpha = {'name': 'alpha', 'value': 1.0, 'vary': False, 'expr': '(alpha_perp**2 * alpha_par)**(1./3)', 'analytic': False}
+theory.alpha_drag = {'name': 'alpha_drag', 'value': 1.0, 'vary': False, 'fiducial': 1.0, 'analytic': False}
+theory.alpha_par = {'name': 'alpha_par', 'value': 1.0, 'vary': True, 'fiducial': 1.0, 'prior_name': 'uniform', 'lower': 0.8, 'upper': 1.2, 'analytic': False}
+theory.alpha_perp = {'name': 'alpha_perp', 'value': 1.0, 'vary': True, 'fiducial': 1.0, 'prior_name': 'uniform', 'lower': 0.8, 'upper': 1.2, 'analytic': False}
+theory.b1 = {'name': 'b1', 'value': 2.124276, 'vary': False, 'expr': '(1 - fs)*b1_c + fs*b1_s', 'analytic': False}
+theory.b1_c = {'name': 'b1_c', 'value': 1.9981383928571428, 'vary': False, 'expr': '(1 - fcB)*b1_cA + fcB*b1_cB', 'analytic': False}
+theory.b1_cA = {'name': 'b1_cA', 'value': 1.9, 'vary': True, 'fiducial': 1.9, 'prior_name': 'uniform', 'lower': 1.2, 'upper': 2.5, 'analytic': False}
+theory.b1_cB = {'name': 'b1_cB', 'value': 3.0028260869565218, 'vary': False, 'expr': '(1-fsB)/(1+fsB*(1./Nsat_mult - 1)) * b1_sA +  (1 - (1-fsB)/(1+fsB*(1./Nsat_mult - 1))) * b1_sB', 'fiducial': 2.84, 'analytic': False}
+theory.b1_s = {'name': 'b1_s', 'value': 3.2109999999999994, 'vary': False, 'expr': '(1 - fsB)*b1_sA + fsB*b1_sB', 'analytic': False}
+theory.b1_sA = {'name': 'b1_sA', 'value': 2.755, 'vary': False, 'expr': 'gamma_b1sA*b1_cA', 'fiducial': 2.63, 'analytic': False}
+theory.b1_sB = {'name': 'b1_sB', 'value': 3.8949999999999996, 'vary': False, 'expr': 'gamma_b1sB*b1_cA', 'fiducial': 3.62, 'analytic': False}
+theory.b1sigma8 = {'name': 'b1sigma8', 'value': 1.29580836, 'vary': False, 'expr': 'b1*sigma8_z', 'analytic': False}
+theory.epsilon = {'name': 'epsilon', 'value': 0.0, 'vary': False, 'expr': '(alpha_perp/alpha_par)**(-1./3) - 1.0', 'analytic': False}
+theory.f = {'name': 'f', 'value': 0.78, 'vary': True, 'fiducial': 0.78, 'prior_name': 'uniform', 'lower': 0.6, 'upper': 1.0, 'analytic': False}
+theory.f1h_cBs = {'name': 'f1h_cBs', 'value': 1.0, 'vary': False, 'min': 0, 'fiducial': 1.0, 'prior_name': 'normal', 'mu': 1.0, 'sigma': 0.75, 'analytic': False}
+theory.f1h_sBsB = {'name': 'f1h_sBsB', 'value': 4.0, 'vary': True, 'min': 0.0, 'fiducial': 4.0, 'prior_name': 'normal', 'mu': 4.0, 'sigma': 1.0, 'analytic': False}
+theory.f_so = {'name': 'f_so', 'value': 0.03, 'vary': False, 'fiducial': 0.03, 'prior_name': 'normal', 'mu': 0.04, 'sigma': 0.02, 'analytic': False}
+theory.fcB = {'name': 'fcB', 'value': 0.08898809523809524, 'vary': False, 'min': 0, 'max': 1, 'expr': 'fs / (1 - fs) * (1 + fsB*(1./Nsat_mult - 1))', 'fiducial': 0.089, 'analytic': False}
+theory.fs = {'name': 'fs', 'value': 0.104, 'vary': True, 'min': 0.0, 'max': 1.0, 'fiducial': 0.104, 'prior_name': 'uniform', 'lower': 0.0, 'upper': 0.25, 'analytic': False}
+theory.fsB = {'name': 'fsB', 'value': 0.4, 'vary': True, 'min': 0.0, 'max': 1, 'fiducial': 0.4, 'prior_name': 'uniform', 'lower': 0.0, 'upper': 1.0, 'analytic': False}
+theory.fsigma8 = {'name': 'fsigma8', 'value': 0.4758, 'vary': False, 'expr': 'f*sigma8_z', 'analytic': False}
+theory.gamma_b1cB = {'name': 'gamma_b1cB', 'value': 0.4, 'vary': False, 'min': 0.0, 'max': 1.0, 'fiducial': 0.4, 'prior_name': 'normal', 'mu': 0.4, 'sigma': 0.2, 'analytic': False}
+theory.gamma_b1sA = {'name': 'gamma_b1sA', 'value': 1.45, 'vary': True, 'min': 1.0, 'fiducial': 1.45, 'prior_name': 'normal', 'mu': 1.45, 'sigma': 0.3, 'analytic': False}
+theory.gamma_b1sB = {'name': 'gamma_b1sB', 'value': 2.05, 'vary': True, 'min': 1.0, 'fiducial': 2.05, 'prior_name': 'normal', 'mu': 2.05, 'sigma': 0.3, 'analytic': False}
+theory.nbar = {'name': 'nbar', 'vary': False, 'value': 0.0003118240, 'analytic': False, 'fiducial': 0.0003118240}
+theory.sigma8_z = {'name': 'sigma8_z', 'value': 0.61, 'vary': True, 'fiducial': 0.61, 'prior_name': 'uniform', 'lower': 0.3, 'upper': 0.9, 'analytic': False}
+theory.sigma_c = {'name': 'sigma_c', 'value': 1.0, 'vary': True, 'fiducial': 1.0, 'prior_name': 'uniform', 'lower': 0.0, 'upper': 3.0, 'analytic': False}
+theory.sigma_sA = {'name': 'sigma_sA', 'value': 3.5, 'vary': True, 'fiducial': 3.5, 'prior_name': 'uniform', 'lower': 2.0, 'upper': 8.0, 'analytic': False}
+theory.sigma_sB = {'name': 'sigma_sB', 'value': 5.0, 'vary': False, 'fiducial': 5.0, 'prior_name': 'uniform', 'lower': 3.0, 'upper': 10.0, 'analytic': False}
+theory.sigma_so = {'name': 'sigma_so', 'value': 4.0, 'vary': False, 'fiducial': 4.0, 'prior_name': 'uniform', 'lower': 1.0, 'upper': 7, 'analytic': False}
+#-------------------------------------------------------------------------------
+
+theory_extra.f1h_sBsB =  'An order unity amplitude value multiplying the 1-halo term, ``NsBsB``'
+theory_extra.gamma_b1sA =  'The relative fraction of ``b1_sA`` to ``b1_cA``'
+theory_extra.gamma_b1sB =  'The relative fraction of ``b1_sB`` to ``b1_cA``'
+theory_extra.nbar =  'The number density of the sample in (Mpc/h)^(-3)'
+theory_extra.Nsat_mult =  'The mean number of satellites in halos with >1 sat'
+theory_extra.gamma_b1cB =  'The relative fraction of ``b1_cB`` to ``b1_cA``'
+theory_extra.f1h_cBs =  'An order unity amplitude value multiplying the 1-halo term, ``NcBs``'
+
+#-------------------------------------------------------------------------------
+# model params
+#-------------------------------------------------------------------------------
+model.Pdv_model_type = 'jennings'
+model.correct_mu2 = False
+model.correct_mu4 = False
+model.fog_model = 'modified_lorentzian'
+model.include_2loop = False
+model.interpolate = True
+model.k0_low = 0.005
+model.kmax = 1.0
+model.kmin = 0.005
+model.linear_power_file = None
+model.max_mu = 4
+model.params = 'boss_dr12_fidcosmo.ini'
+model.transfer_fit = 'CLASS'
+model.use_P00_model = True
+model.use_P01_model = True
+model.use_P11_model = True
+model.use_Pdv_model = True
+model.use_Phm_model = True
+model.use_mean_bias = False
+model.use_so_correction = False
+model.use_tidal_bias = False
+model.use_vlah_biasing = True
+model.vel_disp_from_sims = False
+model.z = 0.383929
+#-------------------------------------------------------------------------------
+
